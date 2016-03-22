@@ -227,8 +227,8 @@ module.exports = yeoman.generators.Base.extend({
 			var styleHook = '/*===== yeoman module hook =====*/';
 		
 			// Get out insert code ready to be inserted into the project
-			var styleSource = this.destinationPath('src/style/index.scss');
-			var styleInsert = "@import '../modules/" + ccRoutePath + "/style.scss';"
+			var styleSource = this.destinationPath('src/styles/styles.less');
+			var styleInsert = "@import '../modules/" + ccRoutePath + "/style.less';"
 
 			// Write out the new contents to the file system
 			util.insertStringHook.call(this, styleHook, styleSource, styleInsert, '\n');

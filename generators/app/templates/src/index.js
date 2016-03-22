@@ -1,4 +1,5 @@
 require('./index.html?output=index.html');
+require('./styles/styles.less');
 /*===== yeoman style require hook =====*/
 
 function lazyLoad() {

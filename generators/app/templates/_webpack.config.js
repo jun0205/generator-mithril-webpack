@@ -11,13 +11,7 @@ module.exports = {
 		path: path.join(__dirname, 'build'),
 		filename: 'bundle.js'
 	},
-	resolve: {
-		root: [path.join(__dirname, 'bower_components')]
-	},
 	plugins: [
-		new webpack.ResolverPlugin(
-			new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
-		),
 		new ExtractTextPlugin('styles.css', {
             allChunks: true
         }),
@@ -32,15 +26,8 @@ module.exports = {
 			{
 				test: /\.js$/,
 				loader: 'babel',
-				exclude: /(node_modules|bower_components)/
+				exclude: /node_modules/
 			},
-			/*===== yeoman sass hook start =====*/
-			// SASS compiler
-			{
-				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract('css!sass')
-			},
-			/*===== yeoman sass hook end =====*/
 			// Static files
 			{
 				test: /\.html$/,
@@ -51,6 +38,16 @@ module.exports = {
 				test: /\.(png|jpg|gif)$/,
 				loader: 'url?limit=8192'
 			},
+      // CSS files
+      {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+      },
+			// LESS compiler
+      {
+          test: /\.less$/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+      },
 			// Font files
 			{ test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
 			{ test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,  loader: "url?limit=10000&mimetype=application/font-woff" },

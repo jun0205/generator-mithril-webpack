@@ -10,7 +10,6 @@ describe('mithril-webpack:app', function() {
 	before(function(done) {
 		helpers.run(path.join(__dirname, '../generators-cov/app'))
 			.withPrompts({
-				'useBootstrap': false,
 				'useJQuery': false,
 				'useGit': false
 			})
@@ -22,7 +21,6 @@ describe('mithril-webpack:app', function() {
 
 	it('creates the application structure', function() {
 		assert.file([
-			'bower.json',
 			'package.json',
 			'webpack.config.js',
 			'webpack.production.config.js',
@@ -31,7 +29,7 @@ describe('mithril-webpack:app', function() {
 			'src',
 			'src/index.html',
 			'src/index.js',
-			'src/style/index.scss',
+			'src/styles/styles.less',
 			'src/components/README.md',
 			'src/images/README.md',
 			'src/models/README.md',
@@ -49,7 +47,7 @@ describe('mithril-webpack:component', function() {
 			.withArguments(['testComponent'])
 			.inTmpDir(function(dir) {
 				var done = this.async();
-				fs.outputFile(path.join(dir, 'src/style/index.scss'), '', done);
+				fs.outputFile(path.join(dir, 'src/styles/styles.less'), '', done);
 			})
 			.on('end', done);
 	});
@@ -60,7 +58,7 @@ describe('mithril-webpack:component', function() {
 			'src/components/testComponent/index.js',
 			'src/components/testComponent/view.js',
 			'src/components/testComponent/viewModel.js',
-			'src/components/testComponent/style.scss'
+			'src/components/testComponent/style.less'
 		]);
 	});
 });
@@ -96,7 +94,7 @@ describe('mithril-webpack:route', function() {
 			.inTmpDir(function (dir) {
 				var doneSetup = this.async();
 				fs.copy(path.join(__dirname, '../generators/app/templates/src/index.js'), path.join(dir, 'src/index.js'), function(err) {
-					fs.outputFile(path.join(dir, 'src/style/index.scss'), '', function(err) {
+					fs.outputFile(path.join(dir, 'src/styles/styles.less'), '', function(err) {
 						doneSetup();
 					});
 				});
@@ -110,7 +108,7 @@ describe('mithril-webpack:route', function() {
 			'src/modules/testRoute/index.js',
 			'src/modules/testRoute/view.js',
 			'src/modules/testRoute/viewModel.js',
-			'src/modules/testRoute/style.scss'
+			'src/modules/testRoute/style.less'
 		]);
 	});
 });
