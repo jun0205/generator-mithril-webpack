@@ -66,13 +66,9 @@ The new module and import syntax allows developers to avoid unnecessary namespac
 ##### ES6/ES2015 Classes
 The new class syntax adds syntactic sugar to JavaScripts prototype pattern. This allows the creation of classes and objects from these classes in a clean and easier to understand way. Please read about the [ES6/ES2015 class syntax](http://www.2ality.com/2015/02/es6-classes-final.html) to familiarize yourself with these concepts.
 
-#### SASS
+#### LESS
 
-This generator comes packed with a SASS pre-processor. SASS brings many powerful features to CSS which you can read about [on the SASS website](http://sass-lang.com/guide)
-
-#### Bootstrap [OPTIONAL]
-
-You have the choice to include Bootstrap SASS in your application when you first generate the folder structure. Your application will include Bootstrap SASS which will let you pick and choose the features you wish to use in your web application.
+This generator comes packed with a LESS pre-processor. LESS brings many powerful features to CSS which you can read about [on the LESS website](http://lesscss.org/)
 
 #### jQuery [OPTIONAL]
 
