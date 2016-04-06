@@ -19,4 +19,5 @@ var routes = {
 	/*===== yeoman hook =====*/
 };
 
+m.route.mode = 'hash';
 m.route(document.body, '/', routes);
